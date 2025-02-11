@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "users": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+$": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "User's full name"
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "User's email address"
+            },
+            "registeredAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Timestamp when the user registered"
+            },
+            "role": {
+              "type": "string",
+              "enum": ["admin", "member"],
+              "description": "Role of the user in the system"
+            }
+          },
+          "required": ["name", "email", "registeredAt", "role"],
+          "additionalProperties": false
+        }
+      },
+      "description": "Collection of users"
+    },
+    "tasks": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+$": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title of the task"
+            },
+            "details": {
+              "type": "string",
+              "description
